@@ -1,0 +1,25 @@
+<app-header [title]="title"></app-header>
+<ion-content>
+  <ion-img [src]="item.thumbnail" (click)="viewSlides = true"></ion-img>
+
+  <ion-title>{{ 'ITEM.QUANTITY' | translate }}</ion-title>
+  <ion-select [(ngModel)]="item.quantity">
+    <ion-option *ngFor="let num of numbers" value="{{ num }}">{{ num }}</ion-option>
+  </ion-select>
+
+  <ion-title>{{ 'ITEM.LENGTH' | translate }}</ion-title>
+  <ion-select [(ngModel)]="item.length">
+    <ion-option *ngFor="let size of sizeRanges" value="{{ size }}">{{ size }}</ion-option>
+  </ion-select>
+</ion-content>
+
+<ion-slides *ngIf="viewSlides">
+  <ion-slide>
+    <img src="{{ item.main_pic }}">
+  </ion-slide>
+  <ion-slide *ngFor="let image of item.item_images">
+    <img src="{{ image }}">
+  </ion-slide>
+</ion-slides>
+
+

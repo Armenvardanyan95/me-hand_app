@@ -1,0 +1,38 @@
+
+
+<ion-content padding>
+  <app-header [title]="title"></app-header>
+  <div padding>
+    <ion-segment [(ngModel)]="viewMode">
+      <ion-segment-button value="cards">
+        Cards
+      </ion-segment-button>
+      <ion-segment-button value="list">
+        List
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="viewMode">
+    <ion-list *ngSwitchCase="'cards'">
+      <ion-item *ngFor="let item of items" (click)="quickView(item.id)">
+        <ion-thumbnail class="custom-thumbnail" item-left>
+          <img src="{{ item.thumbnail }}">
+        </ion-thumbnail>
+        <h2>{{ item[lang].title }}</h2>
+        <p>{{ item.item_class_detail[lang] }} • {{ item.item_type_detail[lang] }}</p>
+        <button ion-button clear item-right>{{ 'HOME.QUICK_VIEW' | translate }}</button>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'list'">
+      <ion-item *ngFor="let item of items">
+        <ion-thumbnail item-left>
+          <img src="{{ item.thumbnail }}">
+        </ion-thumbnail>
+        <h2>{{ item[lang].title }}</h2>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>

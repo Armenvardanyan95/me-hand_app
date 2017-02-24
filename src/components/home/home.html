@@ -1,0 +1,22 @@
+<app-header [title]="title"></app-header>
+<ion-content padding>
+  <h3>Ionic Menu Starter</h3>
+
+  <ion-list inset>
+    <button ion-item *ngFor="let itemClass of classes">
+      {{ itemClass[lang] }}
+    </button>
+  </ion-list>
+
+  <ion-card *ngFor="let item of items">
+    <img src="{{ item.thumbnail }}"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{ item[lang].title }}
+      </ion-card-title>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+

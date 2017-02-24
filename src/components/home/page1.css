@@ -1,0 +1,7 @@
+.custom-thumbnail > img:first-child, .ionic .custom-thumbnail .item-image, .ionic .custom-thumbnail .item-content > img:first-child, .ionic .custom-thumbnail .item-content .item-image {
+  top: 0px !important;
+  left: 0px !important;
+  max-width: 200px !important;
+  max-height: 200px !important; }
+
+/*# sourceMappingURL=page1.css.map */
